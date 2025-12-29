@@ -9,7 +9,7 @@ npm install
 
 Execute os testes:
 
-npx wdio run wdio.conf.js
+npm run ap:run 
 
 
 Organização
