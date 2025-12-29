@@ -6,12 +6,12 @@ Instale as dependências:
 
 npm install
 
-npm install
+
 Execute os testes:
 
 npx wdio run wdio.conf.js
 
-npx wdio run wdio.conf.js
+
 Organização
 features: Cenários de teste escritos em Gherkin.
 
