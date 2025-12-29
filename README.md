@@ -13,7 +13,7 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ```bash
 npm install
-```
+````
 
 ## Configuração
 
@@ -34,18 +34,23 @@ appium
 ```
 
 ```bash
-npm run test:mobile
+npm run ap:run
 ```
+
+## Organização
+
+* features: cenários de teste em Gherkin
+* conf: configurações do ambiente de teste
 
 ## Stack
 
-- Appium
-- WebdriverIO
-- Cucumber
-- dotenv
+* Appium
+* WebdriverIO
+* Cucumber
+* dotenv
 
 ## Observações
 
-- Compatível com emulador e dispositivo físico
-- App instalado automaticamente via URL
-- Arquitetura baseada em Page Objects
+* Compatível com emulador e dispositivo físico
+* App instalado automaticamente via URL
+* Arquitetura baseada em Page Objects
