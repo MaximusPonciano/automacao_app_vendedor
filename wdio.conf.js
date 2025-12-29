@@ -18,15 +18,14 @@ export const config = {
 
   capabilities: [
     {
-      platformName: "Android",
-      "appium:automationName": "UiAutomator2",
-      "appium:deviceName": process.env.DEVICE_NAME,
-      "appium:udid": process.env.DEVICE_UDID,
-      "appium:app": `${process.cwd()}/app-60.apk`,
-      "appium:appPackage": `br.com.fastshop.seller.${process.env.ENVIRONMENT}`,
-      "appium:noReset": true,
-      "appium:autoGrantPermissions": true,
-      "appium:newCommandTimeout": 180,
+      platformName: 'Android',
+      'appium:automationName': 'UiAutomator2',
+      'appium:deviceName': process.env.DEVICE_NAME,
+      'appium:udid': process.env.DEVICE_UDID,
+      'appium:app': `${process.cwd()}/app-60.apk`,
+      'appium:noReset': false,
+      'appium:autoGrantPermissions': true,
+      'appium:chromedriverAutodownload': true
     },
   ],
 

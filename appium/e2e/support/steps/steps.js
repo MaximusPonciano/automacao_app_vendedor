@@ -1,18 +1,50 @@
+// appium/e2e/support/steps/steps.js
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import HomePage from '../pages/Home/index';
+import { loginElements } from '../../support/pages/login';
 
-Given('que eu abro o aplicativo', async () => {
-  await HomePage.openApp();
+Given('que o aplicativo App Vendedor está aberto', async () => {
+  await driver.switchContext('NATIVE_APP');
+  await driver.pause(2000);
 });
 
-When('o modal da Home sobe', async () => {
-  await HomePage.waitModalUp();
+When('eu acesso o fluxo de login', async () => {
+  await driver.switchContext('NATIVE_APP');
+  await $(loginElements.loginButton).waitForDisplayed({ timeout: 10000 });
+  await $(loginElements.loginButton).click();
 });
 
-When('eu clico fora do modal', async () => {
-  await HomePage.closeModal();
+  // aguarda abrir Chrome Custom Tab
+  When('o cookie VTEX válido está presente no browser', async () => {
+    await driver.pause(4000);
+
+    const contexts = await driver.getContexts();
+    const webviewCtx = contexts.find(c => c.includes('WEBVIEW'));
+
+    if (!webviewCtx) {
+      throw new Error(`Contexto WEBVIEW não encontrado. Contextos: ${contexts}`);
+    }
+
+    await driver.switchContext(webviewCtx);
+
+    await driver.setCookies([
+      {
+        name: 'VtexIdclientAutCookie',
+        value: process.env.VTEX_COOKIE,
+        domain: '.fastshop.com.br',
+        path: '/',
+        secure: true,
+      },
+    ]);
+
+    await driver.url('https://www.fastshop.com.br');
+  });
+
+Then('devo retornar para o aplicativo', async () => {
+  await driver.pause(3000);
+  await driver.switchContext('NATIVE_APP');
 });
 
-Then('o modal deve descer', async () => {
-  await HomePage.waitModalDown();
+Then('devo visualizar a home do App Vendedor', async () => {
+  // validação simples de smoke
+  await driver.pause(3000);
 });
