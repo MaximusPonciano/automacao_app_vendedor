@@ -13,7 +13,7 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ```bash
 npm install
-```
+````
 
 Execute `npm run prepare` após a instalação para habilitar os hooks do Husky.
 
@@ -56,17 +56,19 @@ npm run test:mobile
 
 ## Qualidade e formatação
 
-- `npm run lint` / `npm run lint:fix`
-- `npm run prettier:check` / `npm run prettier:write`
-- Hooks do Husky:
-  - `pre-commit`: eslint nos arquivos alterados + prettier em modo check
-  - `commit-msg`: validação com commitlint
+* `npm run lint` / `npm run lint:fix`
+* `npm run prettier:check` / `npm run prettier:write`
+* Hooks do Husky:
+
+  * `pre-commit`: eslint nos arquivos alterados + prettier em modo check
+  * `commit-msg`: validação com commitlint
 
 ## Commits e versionamento
 
-- Padrão [Conventional Commits](https://www.conventionalcommits.org/).
-- Histórico do `CHANGELOG.md` segue Keep a Changelog + SemVer.
+* Padrão [Conventional Commits](https://www.conventionalcommits.org/)
+* Semantic Release gera versão, changelog e atualiza `package.json`/`package-lock.json`
+* Histórico do `CHANGELOG.md` segue Keep a Changelog + SemVer
 
 ## CI/CD
 
-- `.github/workflows/ci.yml`: executa `npm ci`, lint e prettier em `push` para `main` e `pull_request`.
+* `.github/workflows/ci.yml`: executa `npm ci`, lint e prettier em `push` para `main` e `pull_request`
