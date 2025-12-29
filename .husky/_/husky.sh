@@ -1,24 +1,9 @@
-#!/bin/sh
+echo "husky - DEPRECATED
 
-if [ "$HUSKY" = "0" ]; then
-  exit 0
-fi
+Please remove the following two lines from $0:
 
-if [ -z "$husky_skip_init" ]; then
-  husky_skip_init=1
-  export husky_skip_init
+#!/usr/bin/env sh
+. \"\$(dirname -- \"\$0\")/_/husky.sh\"
 
-  command_exists() {
-    command -v "$1" >/dev/null 2>&1
-  }
-
-  if command_exists winpty && command_exists cygpath; then
-    case "$TERM" in
-      xterm* | rxvt* | cygwin | ansi | screen* | tmux* | vt100 | alacritty | konsole*)
-        ;;
-      *)
-        export TERM=xterm-256color
-        ;;
-    esac
-  fi
-fi
+They WILL FAIL in v10.0.0
+"
