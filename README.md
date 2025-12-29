@@ -30,6 +30,10 @@ ENVIRONMENT=qa/beta
 ## Execução
 
 ```bash
+appium
+```
+
+```bash
 npm run test:mobile
 ```
 
