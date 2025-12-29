@@ -1,5 +1,5 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
-import HomePage from '../pages/Home/index';
+import { Given, Then, When } from '@wdio/cucumber-framework';
+import { HomePage } from '../../pageObjects/pages/index.js';
 
 Given('que eu abro o aplicativo', async () => {
   await HomePage.openApp();
