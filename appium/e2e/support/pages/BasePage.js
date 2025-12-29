@@ -3,10 +3,6 @@ export default class BasePage {
     await driver.launchApp();
   }
 
-  async openDeepLink(uri) {
-    await driver.execute('mobile: deepLink', { url: uri });
-  }
-
   async close() {
     await driver.closeApp();
   }
@@ -34,15 +30,6 @@ export default class BasePage {
   async click(element) {
     await this.waitForVisible(element);
     await element.click();
-  }
-
-  async tap(element) {
-    await this.click(element);
-  }
-
-  async type(element, value) {
-    await this.waitForVisible(element);
-    await element.setValue(value);
   }
 
   async setValue(element, value) {
@@ -78,9 +65,6 @@ export default class BasePage {
   async hideKeyboard() {
     try {
       await driver.hideKeyboard();
-    } catch (error) {
-      // Keyboard already hidden
-      return error;
-    }
+    } catch (_) {}
   }
 }

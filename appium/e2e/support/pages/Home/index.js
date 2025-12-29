@@ -1,13 +1,13 @@
-import BasePage from '../base/basePage.js';
-import { homeElements } from '../elements/index.js';
+import BasePage from '../BasePage.js';
+import elements from './elements.js';
 
 class HomePage extends BasePage {
   get scrim() {
-    return $(homeElements.scrim);
+    return $(elements.scrim);
   }
 
   get modalTitle() {
-    return $(homeElements.modalTitle);
+    return $(elements.modalTitle);
   }
 
   async openApp() {

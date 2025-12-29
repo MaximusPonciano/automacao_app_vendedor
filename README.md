@@ -4,7 +4,7 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ## Requisitos
 
-- Node.js 18+ (recomendado 20)
+- Node.js 18+
 - Java JDK 11+
 - Android SDK
 - Appium
@@ -13,9 +13,7 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ```bash
 npm install
-````
-
-Execute `npm run prepare` após a instalação para habilitar os hooks do Husky.
+```
 
 ## Configuração
 
@@ -39,36 +37,15 @@ appium
 npm run test:mobile
 ```
 
-## Organização
+## Stack
 
-```
-/src
-  /config          # wdio.conf.js
-  /features        # arquivos .feature
-    /step-definitions
-    /support
-  /pageObjects
-    /base          # ações genéricas (basePage)
-    /elements      # mapeamento de seletores
-    /pages         # lógica de páginas + export centralizado
-  /utils
-```
+- Appium
+- WebdriverIO
+- Cucumber
+- dotenv
 
-## Qualidade e formatação
+## Observações
 
-* `npm run lint` / `npm run lint:fix`
-* `npm run prettier:check` / `npm run prettier:write`
-* Hooks do Husky:
-
-  * `pre-commit`: eslint nos arquivos alterados + prettier em modo check
-  * `commit-msg`: validação com commitlint
-
-## Commits e versionamento
-
-* Padrão [Conventional Commits](https://www.conventionalcommits.org/)
-* Semantic Release gera versão, changelog e atualiza `package.json`/`package-lock.json`
-* Histórico do `CHANGELOG.md` segue Keep a Changelog + SemVer
-
-## CI/CD
-
-* `.github/workflows/ci.yml`: executa `npm ci`, lint e prettier em `push` para `main` e `pull_request`
+- Compatível com emulador e dispositivo físico
+- App instalado automaticamente via URL
+- Arquitetura baseada em Page Objects
