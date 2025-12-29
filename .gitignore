@@ -1,0 +1,22 @@
+# Dependências
+node_modules/
+
+# Arquivos de sistema/executáveis estranhos (vistos na imagem)
+npm
+npx
+
+# Logs de erro e de execução
+*.log
+npm-debug.log*
+
+# Relatórios de testes (WebdriverIO/Allure)
+allure-results/
+allure-report/
+errorShots/
+screenShot/
+
+# Variáveis de ambiente (Segurança)
+.env
+
+# Arquivos do VS Code
+.vscode/
