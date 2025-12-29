@@ -4,7 +4,7 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ## Requisitos
 
-- Node.js 18+
+- Node.js 18+ (recomendado 20)
 - Java JDK 11+
 - Android SDK
 - Appium
@@ -13,7 +13,9 @@ Projeto de automação mobile do **App Vendedor** usando **Appium**, **Webdriver
 
 ```bash
 npm install
-````
+```
+
+Execute `npm run prepare` após a instalação para habilitar os hooks do Husky.
 
 ## Configuração
 
@@ -34,23 +36,37 @@ appium
 ```
 
 ```bash
-npm run ap:run
+npm run test:mobile
 ```
 
 ## Organização
 
-* features: cenários de teste em Gherkin
-* conf: configurações do ambiente de teste
+```
+/src
+  /config          # wdio.conf.js
+  /features        # arquivos .feature
+    /step-definitions
+    /support
+  /pageObjects
+    /base          # ações genéricas (basePage)
+    /elements      # mapeamento de seletores
+    /pages         # lógica de páginas + export centralizado
+  /utils
+```
 
-## Stack
+## Qualidade e formatação
 
-* Appium
-* WebdriverIO
-* Cucumber
-* dotenv
+- `npm run lint` / `npm run lint:fix`
+- `npm run prettier:check` / `npm run prettier:write`
+- Hooks do Husky:
+  - `pre-commit`: eslint nos arquivos alterados + prettier em modo check
+  - `commit-msg`: validação com commitlint
 
-## Observações
+## Commits e versionamento
 
-* Compatível com emulador e dispositivo físico
-* App instalado automaticamente via URL
-* Arquitetura baseada em Page Objects
+- Padrão [Conventional Commits](https://www.conventionalcommits.org/).
+- Histórico do `CHANGELOG.md` segue Keep a Changelog + SemVer.
+
+## CI/CD
+
+- `.github/workflows/ci.yml`: executa `npm ci`, lint e prettier em `push` para `main` e `pull_request`.

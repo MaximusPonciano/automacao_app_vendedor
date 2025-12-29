@@ -8,6 +8,13 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Integração de linting, formatação e hooks git com Husky
+- Padronização de commits via Commitlint (Conventional Commits)
+- Workflow de CI no GitHub Actions
+- Estrutura revisada de Page Objects e configuração do WebdriverIO
+
 ## [1.0.1] - 2025-12-29
 
 ### Added
