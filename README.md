@@ -1,20 +1,51 @@
-Automação App Vendedor
-Projeto de testes automatizados mobile utilizando WebdriverIO e Appium com escrita em BDD (Cucumber).
+# App Vendedor – Mobile Automation
 
-Como rodar o projeto
-Instale as dependências:
+Projeto de automação mobile do **App Vendedor** usando **Appium**, **WebdriverIO** e **Cucumber**.
 
+## Requisitos
+
+- Node.js 18+
+- Java JDK 11+
+- Android SDK
+- Appium
+
+## Instalação
+
+```bash
 npm install
+```
 
+## Configuração
 
-Execute os testes:
+Crie o arquivo `.env` com os dados do dispositivo:
 
-npm run ap:run 
+```env
+DEVICE_NAME=
+DEVICE_UDID=
+ENVIRONMENT=qa/beta
+```
 
+> O `.env.example` serve como referência e não deve conter dados sensíveis.
 
-Organização
-features: Cenários de teste escritos em Gherkin.
+## Execução
 
-steps: Implementação dos passos em JavaScript.
+```bash
+appium
+```
 
-conf: Configurações do ambiente de teste.
+```bash
+npm run test:mobile
+```
+
+## Stack
+
+- Appium
+- WebdriverIO
+- Cucumber
+- dotenv
+
+## Observações
+
+- Compatível com emulador e dispositivo físico
+- App instalado automaticamente via URL
+- Arquitetura baseada em Page Objects
