@@ -30,7 +30,7 @@ When('eu acesso o fluxo de login', async () => {
       {
         name: 'VtexIdclientAutCookie',
         value: process.env.VTEX_COOKIE,
-        domain: '.fastshop.com.br',
+        domain: 'fastshopbrqa2.myvtex.com',
         path: '/',
         secure: true,
       },
