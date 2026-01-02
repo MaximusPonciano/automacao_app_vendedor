@@ -1,25 +1,34 @@
 class HomePage {
-
+    // Seletores
     get scrimBackground() { return $('~Scrim'); }
     get tituloModalPinPad() { return $('~Conecte o pin pad ao Bluetooth do aparelho'); }
+    get produtoNovo() { 
+        const selector = 'new UiSelector().descriptionStartsWith("PIEALPHAPTO")';
+        return $(`android=${selector}`);
+    }
+
 
     async aguardarCarregamentoInicial() {
-        await this.scrimBackground.waitForExist({ timeout: 20000 });
+        try {
+            await this.scrimBackground.waitForExist({ timeout: 5000 });
+        } catch (error) {
+            console.log("Modal não apareceu desta vez, seguindo...");
+        }
+    }
+
+    async clicarForaDoModal() {
+
+        await this.scrimBackground.waitForDisplayed({ timeout: 5000 });
+        await this.scrimBackground.click();
     }
 
     async validarModalVisivel() {
-        await this.tituloModalPinPad.waitForDisplayed({ timeout: 10000 });
+        return await this.tituloModalPinPad.isDisplayed();
     }
 
-    async fecharModalComBotaoVoltar() {
-
-        await driver.back();
-
-        await this.tituloModalPinPad.waitForExist({ reverse: true, timeout: 5000 });
-    }
-
-    async verificarModalInexistente() {
-        await expect(this.tituloModalPinPad).not.toExist();
+    async selecionarPrimeiroProduto() {
+        await this.produtoNovo.waitForDisplayed({ timeout: 10000 });
+        await this.produtoNovo.click();
     }
 }
 

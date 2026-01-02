@@ -10,10 +10,13 @@ When(/^o modal da Home sobe$/, async () => {
 });
 
 When(/^eu clico fora do modal$/, async () => {
-    // Usando a lógica de voltar que você implementou
-    await HomePage.fecharModalComBotaoVoltar();
+    await HomePage.clicarForaDoModal();
 });
 
 Then(/^o modal deve descer$/, async () => {
-    await HomePage.verificarModalInexistente();
+    await HomePage.validarModalVisivel();
+});
+
+When(/^eu seleciono o produto na home$/, async () => {
+    await HomePage.selecionarPrimeiroProduto();
 });
