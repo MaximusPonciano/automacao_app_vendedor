@@ -1,29 +1,19 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
+import HomePage from '../pages/home.page.js';
 
-Given('que eu abro o aplicativo', async () => {
-    await $('~Scrim').waitForExist({ timeout: 20000 });
+Given(/^que eu abro o aplicativo$/, async () => {
+    await HomePage.aguardarCarregamentoInicial();
 });
 
-When('o modal da Home sobe', async () => {
-    const tituloModal = await $('~Conecte o pin pad ao Bluetooth do aparelho');
-    await tituloModal.waitForDisplayed({ timeout: 10000 });
+When(/^o modal da Home sobe$/, async () => {
+    await HomePage.validarModalVisivel();
 });
 
-When('eu clico fora do modal', async () => {
-
-    await driver.back();
-    
-    await driver.pause(1500); 
+When(/^eu clico fora do modal$/, async () => {
+    // Usando a lógica de voltar que você implementou
+    await HomePage.fecharModalComBotaoVoltar();
 });
 
-Then('o modal deve descer', async () => {
-    const tituloModal = await $('~Conecte o pin pad ao Bluetooth do aparelho');
-
-
-    await tituloModal.waitForExist({ 
-        reverse: true, 
-        timeout: 10000 
-    });
-
-    await expect(tituloModal).not.toExist();
+Then(/^o modal deve descer$/, async () => {
+    await HomePage.verificarModalInexistente();
 });

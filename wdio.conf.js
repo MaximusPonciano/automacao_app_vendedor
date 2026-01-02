@@ -57,7 +57,7 @@ export const config = {
   reporters: ["dot"],
 
   onPrepare: function () {
-    console.log("Testes iniciando com Cucumber em C:/projetos/desafio_5...");
+    console.log("Testes iniciando com Cucumber");
   },
   onComplete: function () {
     console.log("Testes finalizados!");
