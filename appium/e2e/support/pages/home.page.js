@@ -4,12 +4,12 @@ class HomePage {
     get tituloModalPinPad() { return $('~Conecte o pin pad ao Bluetooth do aparelho'); }
     get produtoNovo() { 
         const selector = 'new UiSelector().descriptionStartsWith("PIEALPHAPTO")';
-        return $(`android=${selector}`);
-    }
-
+        return $(`android=${selector}`);}
+    
 
     async aguardarCarregamentoInicial() {
         try {
+            // Espera o modal/scrim aparecer por até 5s
             await this.scrimBackground.waitForExist({ timeout: 5000 });
         } catch (error) {
             console.log("Modal não apareceu desta vez, seguindo...");
